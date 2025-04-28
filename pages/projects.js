@@ -1,11 +1,11 @@
 import Link from 'next/link';
 // import DataImages from './recent-work-data'
 
-export default function RecentWork(props) {
+export default function Projects(props) {
   return (
     <main>
       <h2>Our Projects</h2>
-      {props.posts.map((project, index) => {
+      {props.projects.map((project, index) => {
         return (
           <div key={index}>
             <h3>
