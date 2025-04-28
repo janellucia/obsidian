@@ -1,19 +1,19 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import styles from "../../styles/post.module.css"
+import styles from "../projects.module.css"
 
-export default function Post(props) {
+export default function Project(props) {
   const router = useRouter()
   return (
     <>
       <p>
-        <Link href="/blog">
-          <small>&laquo; back to all blog posts</small>
+        <Link href="/projects">
+          <small>&laquo; back to all projects</small>
         </Link>
       </p>
       <h2 className={styles.title}>{props.post.title}</h2>
       <p>{props.post.content}</p>
-      <button className={styles.button} onClick={() => router.push("/blog")}>
+      <button className={styles.button} onClick={() => router.push("/projects")}>
         Click me to programmatically navigate or redirect
       </button>
     </>
@@ -21,7 +21,7 @@ export default function Post(props) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetch("https://learnwebcode.github.io/json-example/posts.json")
+  const response = await fetch("https://raw.githubusercontent.com/janellucia/obsidian/refs/heads/main/pages/projects-data.json")
   const data = await response.json()
 
   const thePaths = data.posts.map(pet => {
@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const response = await fetch("https://learnwebcode.github.io/json-example/posts.json")
+  const response = await fetch("https://raw.githubusercontent.com/janellucia/obsidian/refs/heads/main/pages/projects-data.json")
   const data = await response.json()
   const thePost = data.posts.filter(post => post.slug === context.params.slug)[0]
 

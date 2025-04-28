@@ -6,7 +6,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>{pageProps.title ? pageProps.title : "Our Basic Title"}</title>
+        <title>{pageProps.title ? pageProps.title : "Obsidian"}</title>
       </Head>
       <Layout>
         <Component {...pageProps} />

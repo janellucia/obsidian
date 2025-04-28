@@ -4,14 +4,14 @@ import Link from 'next/link';
 export default function RecentWork(props) {
   return (
     <main>
-      <h2>The Blog</h2>
-      {props.posts.map((post, index) => {
+      <h2>Our Projects</h2>
+      {props.posts.map((project, index) => {
         return (
           <div key={index}>
             <h3>
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+              <Link href={`/projects/${project.slug}`}>{project.title}</Link>
             </h3>
-            <p>{post.content}</p>
+            <p>{project.content}</p>
             <hr />
           </div>
         )
@@ -21,12 +21,12 @@ export default function RecentWork(props) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch("https://learnwebcode.github.io/json-example/posts.json")
+  const response = await fetch("https://raw.githubusercontent.com/janellucia/obsidian/refs/heads/main/pages/projects-data.json")
   const data = await response.json()
 
   return {
     props: {
-      posts: data.posts
+      projects: data.projects
     }
   }
 }
