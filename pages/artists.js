@@ -20,8 +20,8 @@ export default function Artists(props) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch("https://raw.githubusercontent.com/janellucia/obsidian/refs/heads/main/pages/atists-data.json")
-  const data = await response.json()
+  const response = await fetch('http://localhost:3000/artists-data.json');
+  const data = await response.json();
 
   return {
     props: {

@@ -1,5 +1,5 @@
 // pages/work/[slug].js
-import WorkItems from '../work-data';
+import WorkItems from '../../components/work-data';
 import { useRouter } from 'next/router';
 import styles from "./work-page.module.css";
 import Image from 'next/image';

@@ -14,7 +14,7 @@ import {
   floating6,
   floating7,
   floating8
-} from './index-data'
+} from '../components/index-data'
 import AnimatedButton from '../components/animated-button';
 
 export default function Home() {
