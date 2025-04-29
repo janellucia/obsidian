@@ -17,7 +17,7 @@ import workImage16 from '../images/work/16.jpg';
 import workImage17 from '../images/work/17.jpg';
 
 
-const WorkItems = [
+export const WorkItems = [
   {
     title: "Glass Atlas",
     slug: "glass-atlas",
