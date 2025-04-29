@@ -12,9 +12,6 @@ export default function Header() {
             <Link className={router.pathname == "/work" || router.pathname == "/work/[slug]" ? "active" : ""} href="/work">
               Recent Work
             </Link>
-            <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
-              Artists
-            </Link>
           </li>
           <li>
             <Link className="header-logo" href="/">

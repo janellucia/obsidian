@@ -15,9 +15,6 @@ export default function Footer() {
             <Link className={router.pathname == "/work" || router.pathname == "/work/[slug]" ? "active" : ""} href="/work">
               Work
             </Link>
-            <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
-              Artists
-            </Link>
             <Link href="">
               Podcast
             </Link>
