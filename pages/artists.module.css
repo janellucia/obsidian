@@ -4,15 +4,33 @@
 ================================
 ============================= */
 
-.title {
-  text-transform: uppercase;
-  font-size: 14px;
-  letter-spacing: 1px;
+.atf {
+  padding: 1rem .5rem;
+  padding-top: 3rem;
 }
 
-.name {
-  font-weight: normal;
-  font-size: 4rem;
-  margin: 10px 0;
-  line-height: 1;
+.atf h1 {
+  margin-bottom: 0;
+}
+
+.atf p {
+  font-size: 22px;
+  margin-top: 0;
+  max-width: 800px;
+}
+
+.artists {
+  padding: 1rem .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.artists a {
+  width: calc(33.3% - .5rem);
+}
+
+.artists a img {
+  width: 100%;
+  height: auto;
 }
