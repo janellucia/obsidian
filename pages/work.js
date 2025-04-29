@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from "./work.module.css";
-import workItems from "./work-data";
+import WorkItems from "./work-data";
 import { Fragment } from "react";
 import Image from 'next/image';
 
@@ -13,7 +13,7 @@ export default function Work() {
       </section>
 
       <section className={styles.projects}>
-        {workItems.map((workItem, i) => (
+        {WorkItems.map((workItem, i) => (
           <Fragment key={i}>
             <Link href={`/work/${workItem.slug}`}>
               <Image

@@ -1,11 +1,11 @@
 // pages/work/[slug].js
-import workItems from '../work-data';
+import WorkItems from '../work-data';
 import { useRouter } from 'next/router';
 import styles from "./work-page.module.css";
 import Image from 'next/image';
 
 export async function getStaticPaths() {
-  const paths = workItems.map((item) => ({
+  const paths = WorkItems.map((item) => ({
     params: { slug: item.slug },
   }));
 
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const workItem = workItems.find((item) => item.slug === params.slug);
+  const workItem = WorkItems.find((item) => item.slug === params.slug);
 
   return { props: { workItem } };
 }
