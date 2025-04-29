@@ -6,23 +6,38 @@ export default function Footer() {
 
   return (
     <footer className='site-footer'>
-      <nav className="header-nav">
+      <nav>
         <ul>
           <li>
-            <Link className={router.pathname == "/" ? "active" : ""} href="/">
-              Home
+            <p>Obsidian was created by Camila Suárez and Sofía Álvarez in 2015. Born in Argentina, they both met in Los Angeles where they started working on a collaborative process that evolved into the formation of Obsidian.</p>
+          </li>
+          <li>
+            <Link className={router.pathname == "/projects" || router.pathname == "/projects/[slug]" ? "active" : ""} href="/projects">
+              Projects
+            </Link>
+            <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
+              Artists
+            </Link>
+            <Link href="">
+              Podcast
             </Link>
           </li>
           <li>
             <Link className={router.pathname == "/about" ? "active" : ""} href="/about">
               About
             </Link>
-          </li>
-          {/* <li>
-            <Link className={router.pathname == "/blog" || router.pathname == "/blog/[slug]" ? "active" : ""} href="/blog">
-              Blog
+            <Link className={router.pathname == "/about" ? "active" : ""} href="/about">
+              Careers
             </Link>
-          </li> */}
+            <Link className={router.pathname == "/contact" ? "active" : ""} href="/contact">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link href="">Instagram</Link>
+            <Link href="">Pinterest</Link>
+            <Link href="">Youtube</Link>
+          </li>
         </ul>
       </nav>
     </footer>

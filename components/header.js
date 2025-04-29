@@ -6,21 +6,27 @@ export default function Header() {
 
   return (
     <header>
-      <h1>
-        <Link className={router.pathname == "/" ? "active" : ""} href="/">
-          Our Site
-        </Link>
-      </h1>
       <nav className="header-nav">
         <ul>
+          <li>
+            <Link className={router.pathname == "/projects" || router.pathname == "/projects/[slug]" ? "active" : ""} href="/projects">
+              Projects
+            </Link>
+            <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
+              Artists
+            </Link>
+          </li>
+          <li>
+            <Link className="header-logo" href="/">
+              Obsidian
+            </Link>
+          </li>
           <li>
             <Link className={router.pathname == "/about" ? "active" : ""} href="/about">
               About
             </Link>
-          </li>
-          <li>
-            <Link className={router.pathname == "/projects" || router.pathname == "/projects/[slug]" ? "active" : ""} href="/projects">
-              Projects
+            <Link className={router.pathname == "/contact" ? "active" : ""} href="/contact">
+              Contact
             </Link>
           </li>
         </ul>

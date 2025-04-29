@@ -1,0 +1,41 @@
+.aboutATF,
+.blocks {
+  width: calc(100% + 2rem);
+  margin-left: -1rem;
+  height: auto;
+}
+
+.aboutText {
+  padding: 1rem 0;
+}
+
+.aboutText h1 {
+  font-size: 22px;
+  max-width: 888px;
+}
+
+.blocks {
+  background-color: var(--brown);
+  display: flex;
+  padding: 0;
+}
+
+.left,
+.right {
+  width: 50%;
+  margin: 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.right {
+  padding-left: 1.5rem;
+}
+
+.right h2 {
+  width: 90%;
+  color: var(--neutral);
+}

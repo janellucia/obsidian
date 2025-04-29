@@ -1,22 +1,21 @@
 import Link from 'next/link';
-// import DataImages from './recent-work-data'
 
 export default function Projects(props) {
   return (
-    <main>
+    <>
       <h2>Our Projects</h2>
       {props.projects.map((project, index) => {
         return (
           <div key={index}>
             <h3>
-              <Link href={`/projects/${project.slug}`}>{project.title}</Link>
+              <Link href={`/collaborations/${project.slug}`}>{project.title}</Link>
             </h3>
             <p>{project.content}</p>
             <hr />
           </div>
         )
       })}
-    </main>
+    </>
   )
 }
 
