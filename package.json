@@ -13,6 +13,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.12.7",
     "next": "^15.3.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

@@ -1,6 +1,7 @@
 @import url("https://db.onlinewebfonts.com/c/3724ece79a634e7b5168905d01e59a64?family=Maison+Neue+Book");
 
 :root {
+  --white: #f8f8f5;
   --neutral: #ede8e4;
   --black: #000;
   --brown: #492728;
@@ -15,20 +16,49 @@ html {
 
 body {
   font-family: var(--bodyFont);
-  background-color: var(--neutral);
+  background-color: var(--white);
   line-height: 1.6;
+  font-size: 16px;
 }
 
 header,
-main,
 footer {
   width: calc(100% - 2rem);
   padding: .5rem 1rem;
 }
 
 main {
-  padding-top: 2.2rem;
   min-height: 75vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 10px 0;
+}
+
+h1 {
+  font-size: 65px;
+}
+
+.button button {
+  width: 150px;
+  margin-top: 18px;
+}
+
+.light-button button {
+  background: var(--neutral);
+  border: 1px solid var(--black);
+  margin-right: 15px;
+}
+
+.dark-button button {
+  background: var(--black);
+  border: 1px solid var(--black);
+  color: var(--white);
 }
 
 /* =============================
@@ -41,8 +71,9 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: var(--neutral);
+  background-color: var(--white);
   padding: 0 1rem;
+  z-index: 999;
 }
 
 header nav ul,

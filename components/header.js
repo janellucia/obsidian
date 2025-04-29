@@ -9,8 +9,8 @@ export default function Header() {
       <nav className="header-nav">
         <ul>
           <li>
-            <Link className={router.pathname == "/projects" || router.pathname == "/projects/[slug]" ? "active" : ""} href="/projects">
-              Projects
+            <Link className={router.pathname == "/work" || router.pathname == "/work/[slug]" ? "active" : ""} href="/work">
+              Recent Work
             </Link>
             <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
               Artists

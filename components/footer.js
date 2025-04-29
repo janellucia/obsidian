@@ -12,8 +12,8 @@ export default function Footer() {
             <p>Obsidian was created by Camila Suárez and Sofía Álvarez in 2015. Born in Argentina, they both met in Los Angeles where they started working on a collaborative process that evolved into the formation of Obsidian.</p>
           </li>
           <li>
-            <Link className={router.pathname == "/projects" || router.pathname == "/projects/[slug]" ? "active" : ""} href="/projects">
-              Projects
+            <Link className={router.pathname == "/work" || router.pathname == "/work/[slug]" ? "active" : ""} href="/work">
+              Work
             </Link>
             <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
               Artists

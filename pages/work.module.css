@@ -1,0 +1,30 @@
+.atf {
+  padding: 1rem .5rem;
+  padding-top: 3rem;
+}
+
+.atf h1 {
+  margin-bottom: 0;
+}
+
+.atf p {
+  font-size: 22px;
+  margin-top: 0;
+  max-width: 800px;
+}
+
+.projects {
+  padding: 1rem .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.projects a {
+  width: calc(33.3% - 1rem);
+}
+
+.projects a img {
+  width: 100%;
+  height: auto;
+}
