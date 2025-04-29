@@ -22,9 +22,16 @@
 
 .projects a {
   width: calc(33.3% - 1rem);
+  text-decoration: none;
+  color: var(--black);
+  margin-bottom: 50px;
 }
 
 .projects a img {
   width: 100%;
   height: auto;
+}
+
+.projects h2 {
+  margin-top: 5px;
 }

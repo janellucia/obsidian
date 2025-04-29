@@ -1,9 +1,9 @@
-import artistImage1 from '../images/work/1.jpg';
-import artistImage2 from '../images/work/2.jpg';
-import artistImage3 from '../images/work/3.jpg';
-import artistImage4 from '../images/work/4.jpg';
-import artistImage5 from '../images/work/5.jpg';
-import artistImage6 from '../images/work/6.jpg';
+import artistImage1 from '../images/artists/lena-marceau.jpg';
+import artistImage2 from '../images/artists/theo-calder.jpg';
+import artistImage3 from '../images/artists/isolde-vance.jpg';
+import artistImage4 from '../images/artists/nico-velden.jpg';
+import artistImage5 from '../images/artists/mira-solane.jpg';
+import artistImage6 from '../images/artists/lucien-hart.jpg';
 
 
 export const ArtistInfo = [

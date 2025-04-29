@@ -3,6 +3,7 @@ import styles from "./work.module.css";
 import WorkItems from "../components/work-data";
 import { Fragment } from "react";
 import Image from 'next/image';
+import React from 'react';
 
 export default function Work() {
   return (
