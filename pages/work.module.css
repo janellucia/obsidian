@@ -55,8 +55,7 @@
 /* ATF */
 
 .atf {
-  padding: 1rem .5rem;
-  padding-top: 3rem;
+  padding: 5rem 2rem 1rem 2rem;
 }
 
 .atf h1 {
@@ -70,7 +69,7 @@
 }
 
 .projects {
-  padding: 2rem 1rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
