@@ -97,6 +97,7 @@
 .projects a img {
   width: 100%;
   height: auto;
+  filter: brightness(0.7);
 }
 
 .projects h2 {
