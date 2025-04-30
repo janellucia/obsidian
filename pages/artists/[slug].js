@@ -1,3 +1,4 @@
+'use client';
 // pages/artists/[slug].js
 import ArtistInfo from '../../components/data-artist';
 import { useRouter } from 'next/router';
