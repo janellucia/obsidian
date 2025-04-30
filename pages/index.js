@@ -22,6 +22,7 @@ import ArtistInfo from '../components/data-artist';
 import WorkItem from '../components/home-work';
 import WorkItems from '../components/data-work';
 import ParallaxSection from '../components/parallax';
+import AboutSection from '../components/home-about';
 
 export default function Home() {
 
@@ -172,6 +173,8 @@ export default function Home() {
       </section>
 
       <ParallaxSection />
+
+      <AboutSection />
 
       <ArtistCarousel artists={ArtistInfo} />
 
