@@ -4,6 +4,9 @@ import About2 from '../images/about/bg-landing-02.jpg';
 import styles from './about.module.css';
 import { motion } from 'framer-motion';
 
+import ArtistCarousel from '../components/home-artists';
+import ArtistInfo from '../components/data-artist';
+
 export default function About() {
   return (
     <motion.div
@@ -33,18 +36,7 @@ export default function About() {
           <h2>At the core of their practice lies a desire to unearth the full potential of raw materials and a creative expression reflective of their cultural identity and heritage.</h2>
         </div>
       </section>
+      <ArtistCarousel artists={ArtistInfo} />
     </motion.div>
   )
-}
-
-export async function getStaticProps() {
-  const response = await fetch("https://api.github.com/users/janellucia")
-  const data = await response.json()
-
-  return {
-    props: {
-      repoCount: data.public_repos
-    },
-    revalidate: 10
-  }
 }

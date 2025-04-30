@@ -73,6 +73,10 @@
   display: inline-block;
 }
 
+.atf .plane a img {
+  border-radius: .8rem;
+}
+
 /* First .plane */
 .atf .plane:nth-of-type(1) {
   filter: brightness(0.7);

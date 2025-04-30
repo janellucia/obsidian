@@ -181,6 +181,7 @@ header nav li:nth-child(2) a {
         Footer
 ================================
 ============================= */
+
 footer ul {
   align-items: flex-start !important;
 }
