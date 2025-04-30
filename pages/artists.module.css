@@ -1,3 +1,15 @@
+.imageInner {
+  overflow: hidden;
+}
+
+.artistImage {
+  transition: transform 0.4s ease;
+}
+
+.card:hover .artistImage {
+  transform: scale(1.05) translateY(-2px);
+}
+
 /* =============================
 ================================
         Artist Page

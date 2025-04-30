@@ -286,3 +286,39 @@ screen and (max-width: 650px) {
     padding: 70px 20px;
   }
 }
+
+/* ==============================
+=================================
+      Home Work Section
+=================================
+============================== */
+
+.workHeader {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.projects {
+  padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.projects a {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+}
+
+@media (max-width: 900px) {
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}

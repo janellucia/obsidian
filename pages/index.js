@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import BackgroundComponent from '../components/paralax';
+import BackgroundComponent from '../components/parallax';
 import Paralax from '../images/home/obsidian.jpg';
 import AnimatedButton from '../components/button';
 import {
@@ -16,7 +16,14 @@ import {
   floating6,
   floating7,
   floating8
-} from '../components/data-index'
+} from '../components/data-index';
+
+import ArtistCarousel from '../components/home-artists';
+import ArtistInfo from '../components/data-artist';
+
+import WorkItem from '../components/home-work';
+import WorkItems from '../components/data-work';
+import ParallaxSection from '../components/parallax';
 
 export default function Home() {
 
@@ -37,7 +44,7 @@ export default function Home() {
   const speed = 0.01;
 
   const manageMouseMove = (e) => {
-    const { movementX, movementY } = e
+    const { movementX, movementY } = e;
     xForce += movementX * speed;
     yForce += movementY * speed;
 
@@ -67,7 +74,7 @@ export default function Home() {
     }
   }
 
-  //Slide up effect
+  // Slide in effect
   const slideInHOneRef = useRef(null);
 
   useEffect(() => {
@@ -85,7 +92,6 @@ export default function Home() {
     };
   }, []);
 
-  //Slide up effect
   const slideInRef = useRef(null);
 
   useEffect(() => {
@@ -103,6 +109,18 @@ export default function Home() {
     };
   }, []);
 
+  // GSAP animation for work items
+  const workItemRefs = useRef([]);
+
+  useEffect(() => {
+    gsap.from(workItemRefs.current, {
+      opacity: 0,
+      y: 100,
+      stagger: 0.3,
+      duration: 0.6,
+      ease: "power2.out",
+    });
+  }, []);
 
   return (
     <motion.div
@@ -113,64 +131,34 @@ export default function Home() {
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
         <div ref={plane1} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating1}
-              alt='image'
-              width={200}
-            />
-          </Link>
-          <Link href="/" className='image-link no-hover' >
-            <Image
-              src={floating2}
-              alt='image'
-              width={200}
-            />
+            <Image src={floating1} alt='image' width={200} />
           </Link>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating7}
-              alt='image'
-              width={150}
-            />
+            <Image src={floating2} alt='image' width={200} />
+          </Link>
+          <Link href="/" className='image-link no-hover'>
+            <Image src={floating7} alt='image' width={150} />
           </Link>
         </div>
 
         <div ref={plane2} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating4}
-              alt='image'
-              width={180}
-            />
+            <Image src={floating4} alt='image' width={180} />
           </Link>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating6}
-              alt='image'
-              width={160}
-            />
+            <Image src={floating6} alt='image' width={160} />
           </Link>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating8}
-              alt='image'
-              width={180}
-            />
+            <Image src={floating8} alt='image' width={180} />
           </Link>
         </div>
         <div ref={plane3} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating3}
-              alt='image'
-              width={160}
-            /></Link>
+            <Image src={floating3} alt='image' width={160} />
+          </Link>
           <Link href="/" className='image-link no-hover'>
-            <Image
-              src={floating5}
-              alt='image'
-              width={166}
-            /></Link>
+            <Image src={floating5} alt='image' width={166} />
+          </Link>
         </div>
 
         <div className={styles.title}>
@@ -185,14 +173,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.about}>
-        <BackgroundComponent imageUrl={Paralax.src} />
-        <div className={styles.aboutText}>
-          <h2>A portal into depth, detail, and transformation.</h2>
-          <p>Obsidian is a creative agency representing six multidisciplinary artists whose work explores the poetic, the personal, and the profound. We collaborate with cultural institutions, galleries, and brands seeking singular voices and unforgettable visuals.</p>
-        </div>
+      <ParallaxSection />
+
+      <ArtistCarousel artists={ArtistInfo} />
+
+      <section className={styles.projects}>
+        {WorkItems.map((work, index) => (
+          <WorkItem
+            key={index}
+            work={work}
+            ref={(el) => workItemRefs.current[index] = el}
+          />
+        ))}
       </section>
 
     </motion.div>
-  )
+  );
 }
