@@ -8,6 +8,10 @@
   --bodyFont: "Maison Neue Book", sans-serif;
 }
 
+.nextjs-toast {
+  display: none;
+}
+
 body,
 html {
   margin: 0;
