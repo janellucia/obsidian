@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from "./work.module.css";
-import WorkItems from "../components/work-data";
+import WorkItems from "../components/data-work";
 import { Fragment } from "react";
 import Image from 'next/image';
 import React from 'react';

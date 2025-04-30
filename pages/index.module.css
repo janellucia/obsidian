@@ -13,7 +13,7 @@
   left: 50%;
   top: 45%;
   transform: translateX(-50%) translateY(-50%);
-  width: 980px;
+  width: 95vw;
   text-align: center;
 }
 
@@ -26,18 +26,40 @@
 }
 
 @media(max-width:1025px) {
-  .atf {
+
+  .atf,
+  .atf .plane {
     width: 100vw;
     height: 80vh;
+  }
+
+  .atf .title {
+    top: 52%;
+  }
+
+  .atf .title h1 {
+    font-size: 55px;
+  }
+
+}
+
+@media(max-width:650px) {
+
+  .atf,
+  .atf .plane {
+    width: 100vw;
+    height: 85vh;
   }
 
   .atf .title {
     top: 48%;
   }
 
-  .atf .plane {
-    height: 80vh;
+  .atf .title p {
+    width: 85%;
+    margin: 10px auto;
   }
+
 }
 
 /* ==============================
@@ -150,7 +172,7 @@
   .atf .plane:nth-of-type(2) a:nth-of-type(3) {
     left: initial;
     right: 0;
-    bottom: 30%;
+    bottom: 10%;
   }
 
 }
@@ -173,7 +195,7 @@
   .atf .plane:nth-of-type(2) a:nth-of-type(3) {
     left: initial;
     right: -20%;
-    top: 73%;
+    top: 77%;
   }
 
 }
@@ -211,7 +233,7 @@
   /* bottom second left */
   .atf .plane:nth-of-type(3) a:nth-of-type(2) {
     left: 0;
-    top: 55%;
+    top: 70%;
   }
 
 }
@@ -221,7 +243,7 @@
   /* bottom second left */
   .atf .plane:nth-of-type(3) a:nth-of-type(2) {
     left: -10%;
-    top: 60%;
+    top: 82%;
   }
 
 }
@@ -245,12 +267,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 100px 1rem;
+  width: 91%;
+  max-width: 777px;
+  text-align: center;
 }
 
 @media only screen and (pointer: coarse) and (max-width: 1025px),
 screen and (max-width: 1025px) {
   .about {
-    padding: 90px 20px;
     min-height: 200px;
     background-attachment: scroll !important;
   }
@@ -258,7 +282,7 @@ screen and (max-width: 1025px) {
 
 @media only screen and (pointer: coarse) and (max-width: 650px),
 screen and (max-width: 650px) {
-  .about {
+  .aboutText {
     padding: 70px 20px;
   }
 }

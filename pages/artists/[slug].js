@@ -1,5 +1,5 @@
 // pages/artists/[slug].js
-import ArtistInfo from '../../components/artist-data';
+import ArtistInfo from '../../components/data-artist';
 import { useRouter } from 'next/router';
 import styles from "./artist-page.module.css";
 import Image from 'next/image';

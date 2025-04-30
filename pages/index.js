@@ -14,7 +14,7 @@ import {
   floating6,
   floating7,
   floating8
-} from '../components/index-data'
+} from '../components/data-index'
 import AnimatedButton from '../components/animated-button';
 
 export default function Home() {
@@ -104,7 +104,7 @@ export default function Home() {
 
 
   return (
-    <main>
+    <>
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
         <div ref={plane1} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
@@ -171,8 +171,8 @@ export default function Home() {
         <div className={styles.title}>
           <h1 ref={slideInHOneRef}>Art that Lingers in the Dark</h1>
           <p ref={slideInRef}>Representing artists across photography, sculpture, film, and new media.</p>
-          <AnimatedButton href="/projects" className="button light-button">
-            Projects
+          <AnimatedButton href="/work" className="button light-button">
+            Recent Work
           </AnimatedButton>
           <AnimatedButton href="/artists" className="button dark-button">
             Artists
@@ -188,6 +188,6 @@ export default function Home() {
         </div>
       </section>
 
-    </main>
+    </>
   )
 }

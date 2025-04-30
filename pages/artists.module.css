@@ -27,7 +27,7 @@
 }
 
 .artists a {
-  width: calc(33.3% - .5rem);
+  width: calc(25% - .5rem);
 }
 
 .artists a img {

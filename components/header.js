@@ -1,36 +1,37 @@
-import { useRouter } from "next/router";
+'use client'
+import { useEffect, useState } from 'react';
+
+import Menu from './menu';
+import { AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+
+import styles from './menu.module.css'
 import Link from 'next/link';
 
 export default function Header() {
-  const router = useRouter()
+
+  const [isActive, setIsActive] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    if (isActive) setIsActive(false)
+  }, [pathname])
 
   return (
-    <header>
-      <nav className="header-nav">
-        <ul>
-          <li>
-            <Link className={router.pathname == "/work" || router.pathname == "/work/[slug]" ? "active" : ""} href="/work">
-              Recent Work
-            </Link>
-            <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
-              Artists
-            </Link>
-          </li>
-          <li>
-            <Link className="header-logo" href="/">
-              Obsidian
-            </Link>
-          </li>
-          <li>
-            <Link className={router.pathname == "/about" ? "active" : ""} href="/about">
-              About
-            </Link>
-            <Link className={router.pathname == "/contact" ? "active" : ""} href="/contact">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <>
+      <header className="mobile">
+        <h1 className={styles.obsidLogo}><Link href='/'>Obsidian</Link></h1>
+
+        <div className={styles.headerWrap}>
+          <div onClick={() => { setIsActive(!isActive) }} className={styles.button}>
+            <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
+          </div>
+        </div>
+
+      </header>
+      <AnimatePresence mode="wait">
+        {isActive && <Menu />}
+      </AnimatePresence>
+    </>
   )
 }

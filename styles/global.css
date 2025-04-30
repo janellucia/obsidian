@@ -38,6 +38,7 @@ h4,
 h5,
 h6 {
   margin: 10px 0;
+  line-height: 1.1;
 }
 
 h1 {
@@ -61,6 +62,21 @@ h1 {
   color: var(--white);
 }
 
+.mobile {
+  display: none;
+}
+
+@media only screen and (pointer: coarse) and (max-width: 650px),
+screen and (max-width: 650px) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
 /* =============================
 ================================
         Header
@@ -72,7 +88,7 @@ header {
   top: 0;
   left: 0;
   background-color: var(--white);
-  padding: 0 1rem;
+  padding: .5rem 1rem;
   z-index: 999;
 }
 
@@ -102,7 +118,7 @@ header nav a {
   display: none;
 }
 
-/* :hover state */
+/* :hover state  */
 
 nav a {
   font-size: 0.9rem;
@@ -156,6 +172,7 @@ header nav li:nth-child(2) a {
   text-transform: uppercase;
   font-weight: 800;
 }
+
 
 
 /* =============================
