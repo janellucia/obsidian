@@ -52,6 +52,7 @@ h1 {
 
 .light-button button {
   background: var(--neutral);
+  color: var(--black);
   border: 1px solid var(--black);
   margin-right: 15px;
 }

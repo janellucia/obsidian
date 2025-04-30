@@ -1,10 +1,12 @@
 import styles from './index.module.css';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import BackgroundComponent from '../components/background-image';
+import BackgroundComponent from '../components/paralax';
 import Paralax from '../images/home/obsidian.jpg';
+import AnimatedButton from '../components/button';
 import {
   floating1,
   floating2,
@@ -15,7 +17,6 @@ import {
   floating7,
   floating8
 } from '../components/data-index'
-import AnimatedButton from '../components/animated-button';
 
 export default function Home() {
 
@@ -104,7 +105,11 @@ export default function Home() {
 
 
   return (
-    <>
+    <motion.div
+      initial={{ y: 300, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -300, opacity: 0 }}
+      transition={{ duration: .3, ease: "easeInOut" }}>
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
         <div ref={plane1} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
@@ -188,6 +193,6 @@ export default function Home() {
         </div>
       </section>
 
-    </>
+    </motion.div>
   )
 }

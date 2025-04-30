@@ -10,7 +10,7 @@ export default function HeaderDesktop() {
         <ul>
           <li>
             <Link className={router.pathname == "/work" || router.pathname == "/work/[slug]" ? "active" : ""} href="/work">
-              Recent Work
+              Work
             </Link>
             <Link className={router.pathname == "/artists" || router.pathname == "/artists/[slug]" ? "active" : ""} href="/artists">
               Artists

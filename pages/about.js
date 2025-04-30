@@ -1,18 +1,21 @@
-import Image from 'next/image'
-import About1 from '../images/about/about-1.jpg'
-import About2 from '../images/about/bg-landing-02.jpg'
-import styles from './about.module.css'
+import Image from 'next/image';
+import About1 from '../images/about/about-1.jpg';
+import About2 from '../images/about/bg-landing-02.jpg';
+import styles from './about.module.css';
+import { motion } from 'framer-motion';
 
-export default function About(props) {
+export default function About() {
   return (
-    <>
+    <motion.div
+      initial={{ y: 300, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -300, opacity: 0 }}
+      transition={{ duration: .3, ease: "easeInOut" }}>
       <section>
         <Image
           src={About1}
           alt="Picture of the author"
           className={styles.aboutATF}
-        // blurDataURL="data:..." automatically provided
-        // placeholder="blur" // Optional blur-up while loading
         />
       </section>
       <section className={styles.aboutText}>
@@ -24,15 +27,13 @@ export default function About(props) {
             src={About2}
             alt="Picture of the author"
             className={styles.image}
-          // blurDataURL="data:..." automatically provided
-          // placeholder="blur" // Optional blur-up while loading
           />
         </div>
         <div className={styles.right}>
           <h2>At the core of their practice lies a desire to unearth the full potential of raw materials and a creative expression reflective of their cultural identity and heritage.</h2>
         </div>
       </section>
-    </>
+    </motion.div>
   )
 }
 

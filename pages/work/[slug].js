@@ -3,6 +3,7 @@ import WorkItems from '../../components/data-work';
 import { useRouter } from 'next/router';
 import styles from "./work-page.module.css";
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export async function getStaticPaths() {
   const paths = WorkItems.map((item) => ({
@@ -26,7 +27,11 @@ function WorkItem({ workItem }) {
   }
 
   return (
-    <>
+    <motion.div
+      initial={{ y: 300, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -300, opacity: 0 }}
+      transition={{ duration: .3, ease: "easeInOut" }}>
       <section className={styles.atf}>
         <Image
           src={workItem.imageTwo}
@@ -47,7 +52,7 @@ function WorkItem({ workItem }) {
           alt="Chairs"
         />
       </section>
-    </>
+    </motion.div>
   );
 }
 

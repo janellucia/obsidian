@@ -3,6 +3,7 @@ import ArtistInfo from '../../components/data-artist';
 import { useRouter } from 'next/router';
 import styles from "./artist-page.module.css";
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export async function getStaticPaths() {
   const paths = ArtistInfo.map((item) => ({
@@ -26,7 +27,11 @@ function WorkItem({ artist }) {
   }
 
   return (
-    <>
+    <motion.div
+      initial={{ y: 300, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -300, opacity: 0 }}
+      transition={{ duration: .3, ease: "easeInOut" }}>
       <section className={styles.artistWrapper}>
         <div className={styles.image}>
           <Image
@@ -43,7 +48,7 @@ function WorkItem({ artist }) {
         </div>
       </section>
 
-    </>
+    </motion.div>
   );
 }
 
