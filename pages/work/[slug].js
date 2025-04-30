@@ -19,8 +19,24 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const workItem = WorkItems.find((item) => item.slug === params.slug);
-  return { props: { workItem } };
+  const artist = ArtistInfo.find((item) => item.slug === params.slug);
+
+  // Log the slug and matched artist
+  console.log('Building page for artist slug:', params.slug);
+  console.log('Matched artist data:', artist);
+
+  // If no artist is found, trigger 404
+  if (!artist) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      artist,
+    },
+  };
 }
 
 export default function WorkItem({ workItem }) {
