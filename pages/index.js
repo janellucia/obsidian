@@ -4,8 +4,6 @@ import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import BackgroundComponent from '../components/parallax';
-import Paralax from '../images/home/obsidian.jpg';
 import AnimatedButton from '../components/button';
 import {
   floating1,
@@ -177,15 +175,7 @@ export default function Home() {
 
       <ArtistCarousel artists={ArtistInfo} />
 
-      <section className={styles.projects}>
-        {WorkItems.map((work, index) => (
-          <WorkItem
-            key={index}
-            work={work}
-            ref={(el) => workItemRefs.current[index] = el}
-          />
-        ))}
-      </section>
+      <WorkItem projects={WorkItems} />
 
     </motion.div>
   );
