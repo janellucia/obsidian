@@ -37,8 +37,7 @@ const ParallaxSection = () => {
         className={styles.parallaxImage}
       />
       <div className={styles.textContainer} ref={textRef}>
-        <h2>Design that Moves with You</h2>
-        <p>Creating scroll-based magic through timeless design and digital elegance.</p>
+        <h2>We craft visual stories that elevate brands into experiences.</h2>
       </div>
     </section>
   );

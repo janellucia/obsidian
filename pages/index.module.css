@@ -11,7 +11,7 @@
 .atf .title {
   position: absolute;
   left: 50%;
-  top: 45%;
+  top: 50%;
   transform: translateX(-50%) translateY(-50%);
   width: 95vw;
   text-align: center;
@@ -71,6 +71,10 @@
 .atf .plane a {
   position: absolute;
   display: inline-block;
+}
+
+.atf .plane a img {
+  border-radius: .7rem;
 }
 
 /* First .plane */

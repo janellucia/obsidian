@@ -161,8 +161,8 @@ export default function Home() {
         </div>
 
         <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>Art that Lingers in the Dark</h1>
-          <p ref={slideInRef}>Representing artists across photography, sculpture, film, and new media.</p>
+          <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
+          <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
           <AnimatedButton href="/work" className="button light-button">
             Recent Work
           </AnimatedButton>
