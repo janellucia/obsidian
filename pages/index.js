@@ -16,13 +16,11 @@ import {
   floating8
 } from '../components/data-index';
 
-import ArtistCarousel from '../components/home-artists';
-import ArtistInfo from '../components/data-artist';
-
 import WorkItem from '../components/home-work';
 import WorkItems from '../components/data-work';
 import ParallaxSection from '../components/parallax';
 import AboutSection from '../components/home-about';
+import ProcessOverview from '../components/home-process';
 
 export default function Home() {
 
@@ -176,7 +174,7 @@ export default function Home() {
 
       <AboutSection />
 
-      <ArtistCarousel artists={ArtistInfo} />
+      <ProcessOverview />
 
       <WorkItem projects={WorkItems} />
 
