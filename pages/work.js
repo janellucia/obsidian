@@ -60,10 +60,12 @@ export default function Work() {
 
       <section className={styles.projects}>
         {WorkItems.map((workItem, i) => (
-          <Link href={`/work/${workItem.slug}`} key={i} ref={(el) => (projectsRef.current[i] = el)} className={styles.projectCard}>
-            <Image src={workItem.image} alt={workItem.title} />
-            <h2>{workItem.title}</h2>
-          </Link>
+          <div key={i} ref={(el) => (projectsRef.current[i] = el)} className={styles.projectCard}>
+            <Link href={`/work/${workItem.slug}`}>
+              <Image src={workItem.image} alt={workItem.title} />
+              <h2>{workItem.title}</h2>
+            </Link>
+          </div>
         ))}
       </section>
     </div>

@@ -1,12 +1,9 @@
-'use client';
-
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import Image from 'next/image';
-import Link from 'next/link';
+import ParallaxImage from '../images/home/obsidian.jpg'; // your imported image
 import styles from './parallax.module.css';
 
-const ParallaxSection = ({ imageSrc, heading, linkHref, linkLabel }) => {
+const ParallaxSection = () => {
   const imageRef = useRef(null);
   const textRef = useRef(null);
 
@@ -14,21 +11,17 @@ const ParallaxSection = ({ imageSrc, heading, linkHref, linkLabel }) => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      if (imageRef.current) {
-        gsap.to(imageRef.current, {
-          y: scrollY * 0.2,
-          ease: 'none',
-          duration: 0.1,
-        });
-      }
+      gsap.to(imageRef.current, {
+        y: scrollY * 0.2,
+        ease: 'none',
+        duration: 0.1,
+      });
 
-      if (textRef.current) {
-        gsap.to(textRef.current, {
-          y: scrollY * 0.1,
-          ease: 'none',
-          duration: 0.1,
-        });
-      }
+      gsap.to(textRef.current, {
+        y: scrollY * 0.1,
+        ease: 'none',
+        duration: 0.1,
+      });
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -37,17 +30,15 @@ const ParallaxSection = ({ imageSrc, heading, linkHref, linkLabel }) => {
 
   return (
     <section className={styles.parallaxSection}>
-      <Image
-        src={imageSrc}
-        alt="Parallax background"
+      <img
+        src={ParallaxImage.src}
+        alt="Background"
         ref={imageRef}
         className={styles.parallaxImage}
-        fill
-        priority
       />
       <div className={styles.textContainer} ref={textRef}>
-        <h2>{heading}</h2>
-        <Link href={linkHref}>{linkLabel}</Link>
+        <h2>Design that Moves with You</h2>
+        <p>Creating scroll-based magic through timeless design and digital elegance.</p>
       </div>
     </section>
   );

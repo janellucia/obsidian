@@ -1,60 +1,16 @@
-/* Section styling */
-.section {
-  padding: 4rem 2rem;
-  background-color: #f5f5f5;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Header (Title & Subtitle) */
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.heading {
-  font-size: 3rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-}
-
-.subheading {
-  font-size: 1.125rem;
-  color: #777;
-  line-height: 1.5;
-  margin-bottom: 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Grid of project cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-/* Styling for project card */
 .projectCard {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out;
+  display: block;
+  margin-bottom: 2rem;
 }
 
 .projectCard img {
   transition: transform 0.6s ease, opacity 0.6s ease;
+  display: block;
   width: 100%;
   height: auto;
-  border-radius: .8rem;
-  filter: brightness(0.7);
 }
 
 .projectCard:hover img {
@@ -62,30 +18,20 @@
   opacity: 0.85;
 }
 
-.projectCard h3,
-.projectCard p {
+.projectCard h2 {
   position: absolute;
+  bottom: 1rem;
+  left: 1rem;
   margin: 0;
+  font-size: 1.25rem;
   color: white;
   z-index: 2;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.4s ease;
+  pointer-events: none;
 }
 
-.projectCard h3 {
-  bottom: 2.5rem;
-  left: 1rem;
-  font-size: 1.25rem;
-}
-
-.projectCard p {
-  bottom: 1rem;
-  left: 1rem;
-  font-size: 0.8rem;
-}
-
-/* Overlay effect */
 .projectCard::before {
   content: '';
   position: absolute;
@@ -96,81 +42,11 @@
   transition: opacity 0.4s ease;
 }
 
-.projectCard:hover h3,
-.projectCard:hover p {
+.projectCard:hover h2 {
   opacity: 1;
   transform: translateY(0);
 }
 
 .projectCard:hover::before {
   opacity: 1;
-}
-
-/* --------------------------- */
-/* Responsive Design Adjustments */
-/* --------------------------- */
-
-@media (max-width: 768px) {
-  .section {
-    padding: 3rem 1.5rem;
-  }
-
-  .heading {
-    font-size: 2rem;
-  }
-
-  .subheading {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .grid {
-    grid-template-columns: 2fr;
-    gap: 1.5rem;
-  }
-
-  .projectCard h3 {
-    font-size: 1.125rem;
-  }
-
-  .projectCard p {
-    font-size: 0.75rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section {
-    padding: 2rem 1rem;
-  }
-
-  .heading {
-    font-size: 1.75rem;
-  }
-
-  .subheading {
-    font-size: 0.95rem;
-  }
-
-  .projectCard h2 {
-    font-size: 1rem;
-  }
-
-  .projectCard p {
-    font-size: 0.7rem;
-  }
-}
-
-.link {
-  color: var(--black);
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  text-align: center;
-  margin-top: 50px;
-  width: 100%;
-  display: block;
-}
-
-.link:hover {
-  opacity: .6;
 }

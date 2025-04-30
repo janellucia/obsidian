@@ -10,7 +10,6 @@
 .artistWrapper .image img {
   width: 100%;
   height: auto;
-  filter: brightness(0.7);
 }
 
 .artistWrapper .info {

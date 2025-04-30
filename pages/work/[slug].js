@@ -1,14 +1,9 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+// pages/work/[slug].js
 import WorkItems from '../../components/data-work';
-import styles from './work-page.module.css';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useRouter } from 'next/router';
+import styles from "./work-page.module.css";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export async function getStaticPaths() {
   const paths = WorkItems.map((item) => ({
@@ -20,90 +15,45 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const workItem = WorkItems.find((item) => item.slug === params.slug);
+
   return { props: { workItem } };
 }
 
-export default function WorkItem({ workItem }) {
+function WorkItem({ workItem }) {
   const router = useRouter();
-  const atfRef1 = useRef(null);
-  const atfRef2 = useRef(null);
-  const infoRef = useRef(null);
 
-  useEffect(() => {
-    gsap.fromTo(
-      atfRef1.current,
-      { opacity: 0, y: 80 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: atfRef1.current,
-          start: 'top 85%',
-        },
-      }
-    );
-
-    gsap.fromTo(
-      infoRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: infoRef.current,
-          start: 'top 85%',
-        },
-      }
-    );
-
-    gsap.fromTo(
-      atfRef2.current,
-      { opacity: 0, scale: 0.95 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.3,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: atfRef2.current,
-          start: 'top 85%',
-        },
-      }
-    );
-  }, []);
-
-  if (router.isFallback) return <div>Loading...</div>;
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div className={styles.page}>
-      <section className={styles.atf} ref={atfRef1}>
+    <motion.div
+      initial={{ y: 300, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -300, opacity: 0 }}
+      transition={{ duration: .3, ease: "easeInOut" }}>
+      <section className={styles.atf}>
         <Image
           src={workItem.imageTwo}
-          alt={workItem.title}
-          fill
-          className={styles.image}
+          alt="Chairs"
         />
       </section>
 
-      <section className={styles.info} ref={infoRef}>
-        <p className={styles.medium}>{workItem.medium}</p>
-        <h1 className={styles.title}>{workItem.title}</h1>
-        <p className={styles.artist}>{workItem.artist}</p>
-        <p className={styles.description}>{workItem.description}</p>
+      <section className={styles.info}>
+        <p>{workItem.medium}</p>
+        <h1>{workItem.title}</h1>
+        <p>{workItem.artist}</p>
+        <p>{workItem.description}</p>
       </section>
 
-      <section className={styles.atf} ref={atfRef2}>
+      <section className={styles.atf}>
         <Image
           src={workItem.imageThree}
-          alt={workItem.title}
-          fill
-          className={styles.image}
+          alt="Chairs"
         />
       </section>
-    </div>
+    </motion.div>
   );
 }
+
+export default WorkItem;
