@@ -22,7 +22,7 @@ export async function getStaticProps({ params }) {
   return { props: { artist } };
 }
 
-function WorkItem({ artist }) {
+function ArtistPage({ artist }) {
   const router = useRouter();
   const wrapperRef = useRef(null);
   const imageRef = useRef(null);
@@ -90,4 +90,4 @@ function WorkItem({ artist }) {
   );
 }
 
-export default WorkItem;
+export default ArtistPage;
