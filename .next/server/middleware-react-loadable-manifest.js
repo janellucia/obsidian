@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"components/layout.js -> ./footer\":{\"id\":\"components/layout.js -> ./footer\",\"files\":[\"static/chunks/_pages-dir-browser_components_footer_js.js\"]}}"
