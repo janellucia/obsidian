@@ -1,12 +1,19 @@
+/* ==============================
+=================================
+      Floating Images ATF
+=================================
+============================== */
+
 .atf,
 .altAtf {
   padding: 0;
-  margin: 0;
   width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 80vh;
-  overflow: hidden;
   background-color: var(--white);
   position: relative;
+  overflow: hidden;
 }
 
 .atf .title {
@@ -17,15 +24,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 10rem;
 }
 
 .atf .plane {
-  width: 50vw;
+  width: 100vw;
+  max-width: 1200px;
   height: 80vh;
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 55%;
+  transform: translateX(-50%);
 }
 
 @media(max-width:1400px) {
@@ -34,12 +42,6 @@
     padding-left: 3rem;
   }
 }
-
-/* ==============================
-=================================
-      Floating Images ATF
-=================================
-============================== */
 
 .atf .plane {
   filter: brightness(0.7);
@@ -55,13 +57,13 @@
 }
 
 .atf .plane:nth-of-type(1) a {
-  left: 50%;
+  right: 0;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
 .atf .plane:nth-of-type(2) a {
-  left: 65%;
+  right: 25%;
   top: 65%;
   transform: translate(-40%, -40%);
 }
@@ -94,13 +96,13 @@
   }
 
   .atf .plane:nth-of-type(1) a {
-    left: 0;
+    right: 0;
     top: 40%;
     transform: translateY(-50%);
   }
 
   .atf .plane:nth-of-type(2) a {
-    left: 58%;
+    right: 12%;
     top: 50%;
     transform: translate(-40%, -40%);
   }
@@ -112,17 +114,11 @@
   .atf .plane,
   .atf .title {
     width: 100vw;
-    height: 80vh;
-  }
-
-  .atf .plane {
-    left: 0;
+    height: 75vh;
   }
 
   .atf .title {
-    width: 100%;
-    max-width: 600px;
-    height: calc(100% - 15rem);
+    height: calc(100% - 12rem);
     justify-content: flex-end;
     padding-top: 8rem;
     padding-left: 3rem;
@@ -133,14 +129,14 @@
   }
 
   .atf .plane:nth-of-type(1) a {
-    left: 2rem;
-    top: 30%;
+    right: 5%;
+    top: 33%;
     transform: translateY(-50%);
   }
 
   .atf .plane:nth-of-type(2) a {
-    left: 55%;
-    top: 40%;
+    right: 36%;
+    top: 43%;
     transform: translate(-40%, -40%);
   }
 }
@@ -152,13 +148,9 @@
   .atf .title {
     width: 100vw;
     height: 85vh;
-    top: 0;
-    left: 0;
   }
 
   .atf .title {
-    width: 100%;
-    max-width: 600px;
     height: calc(100% - 2rem);
     justify-content: flex-end;
     padding-top: initial;
@@ -170,15 +162,14 @@
   }
 
   .atf .plane:nth-of-type(1) a {
-    left: 1rem;
-    top: 30%;
-    transform: translateY(-50%);
+    right: 2rem;
+    top: 10%;
+    transform: initial;
   }
 
   .atf .plane:nth-of-type(2) a {
-    left: initial;
     right: 0;
-    top: 27%;
+    top: 35%;
     transform: initial;
   }
 
@@ -190,6 +181,7 @@
       Alt -- Floating Images
 =================================
 ============================== */
+
 .altAtf {
   display: flex;
   flex-direction: column;
@@ -208,11 +200,13 @@
 }
 
 .altAtf .plane {
-  width: 50vw;
+  width: 100%;
+  max-width: 1200px;
   height: 80vh;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   filter: brightness(0.7);
 }
 
@@ -226,15 +220,14 @@
 }
 
 .altAtf .plane:nth-of-type(1) a {
-  left: 50%;
+  left: 0;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateY(-50%);
 }
 
 .altAtf .plane:nth-of-type(2) a {
-  left: 65%;
-  top: 65%;
-  transform: translate(-40%, -40%);
+  left: 15%;
+  top: 55%;
 }
 
 @media(max-width:1025px) {
@@ -247,7 +240,7 @@
   .altAtf .plane:nth-of-type(2) a {
     left: 63%;
     top: 65%;
-    transform: translate(-40%, -40%);
+    transform: translatey(-40%);
   }
 }
 
