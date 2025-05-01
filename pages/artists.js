@@ -68,7 +68,7 @@ export default function Artists() {
                 </div>
                 <div className={styles.textWrapper}>
                   <h2>{artist.name}</h2>
-                  <h3>{artist.title}</h3>
+                  <h3>—{artist.title}</h3>
                 </div>
               </Link>
             </div>

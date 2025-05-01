@@ -160,7 +160,7 @@ export default function Home() {
 
         <div className={styles.title}>
           <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
-          <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
+          <p ref={slideInRef}>a collective of artists across photography, sculpture, film, and new media.</p>
           <AnimatedButton href="/work" className="button light-button">
             Recent Work
           </AnimatedButton>

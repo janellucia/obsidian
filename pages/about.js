@@ -13,15 +13,11 @@ import {
   floating6
 } from '../components/data-about';
 
-
 import ParallaxSection from '../components/parallax';
-
 import ArtistCarousel from '../components/home-artists';
 import ArtistInfo from '../components/data-artist';
 
-
 export default function Home() {
-
   useEffect(() => {
     document.body.classList.add("home-page");
     return () => {
@@ -56,12 +52,12 @@ export default function Home() {
   const animate = () => {
     xForce = lerp(xForce, 0, easing);
     yForce = lerp(yForce, 0, easing);
-    gsap.set(plane1.current, { x: `+=${xForce}`, y: `+=${yForce}` })
-    gsap.set(plane2.current, { x: `+=${xForce * 0.5}`, y: `+=${yForce * 0.5}` })
-    gsap.set(plane3.current, { x: `+=${xForce * 0.25}`, y: `+=${yForce * 0.25}` })
-    gsap.set(plane4.current, { x: `+=${xForce}`, y: `+=${yForce}` })
-    gsap.set(plane5.current, { x: `+=${xForce * 0.5}`, y: `+=${yForce * 0.5}` })
-    gsap.set(plane6.current, { x: `+=${xForce * 0.25}`, y: `+=${yForce * 0.25}` })
+    gsap.set(plane1.current, { x: `+=${xForce}`, y: `+=${yForce}` });
+    gsap.set(plane2.current, { x: `+=${xForce * 0.5}`, y: `+=${yForce * 0.5}` });
+    gsap.set(plane3.current, { x: `+=${xForce * 0.25}`, y: `+=${yForce * 0.25}` });
+    gsap.set(plane4.current, { x: `+=${xForce}`, y: `+=${yForce}` });
+    gsap.set(plane5.current, { x: `+=${xForce * 0.5}`, y: `+=${yForce * 0.5}` });
+    gsap.set(plane6.current, { x: `+=${xForce * 0.25}`, y: `+=${yForce * 0.25}` });
 
     if (Math.abs(xForce) < 0.01) xForce = 0;
     if (Math.abs(yForce) < 0.01) yForce = 0;
@@ -70,13 +66,14 @@ export default function Home() {
       requestAnimationFrame(animate);
     }
     else {
-      cancelAnimationFrame(requestAnimationFrameId)
+      cancelAnimationFrame(requestAnimationFrameId);
       requestAnimationFrameId = null;
     }
   }
 
   // Slide in effect
   const slideInHOneRef = useRef(null);
+  const slideInRef = useRef(null);
 
   useEffect(() => {
     gsap.set(slideInHOneRef.current, { opacity: 0, y: 20 });
@@ -93,8 +90,6 @@ export default function Home() {
     };
   }, []);
 
-  const slideInRef = useRef(null);
-
   useEffect(() => {
     gsap.set(slideInRef.current, { opacity: 0, y: 20 });
     gsap.to(slideInRef.current, {
@@ -110,7 +105,6 @@ export default function Home() {
     };
   }, []);
 
-
   return (
     <motion.div
       initial={{ y: 300, opacity: 0 }}
@@ -118,9 +112,7 @@ export default function Home() {
       exit={{ y: -300, opacity: 0 }}
       transition={{ duration: .3, ease: "easeInOut" }}>
 
-
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
-
         <div ref={plane1} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
             <Image src={floating1} alt='image' width={400} />
@@ -131,17 +123,18 @@ export default function Home() {
             <Image src={floating2} alt='image' width={250} />
           </Link>
         </div>
-
         <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
-          <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
+          <h1 ref={slideInHOneRef}>A Creative Journey Across Mediums, Cultures &  Visions.</h1>
+          <p ref={slideInRef}>We’re a design studio driven by intention, storytelling, and craft. <br></br>With every project, we aim to create timeless, meaningful <br></br>experiences—on screen and in print</p>
+          <Link href="/contact" className={styles.cta}>
+            Get in Touch →
+          </Link>
         </div>
       </section>
 
       <ParallaxSection />
 
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.altAtf}>
-
         <div ref={plane3} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
             <Image src={floating3} alt='image' width={400} />
@@ -152,17 +145,18 @@ export default function Home() {
             <Image src={floating4} alt='image' width={250} />
           </Link>
         </div>
-
         <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
-          <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
+          <h1 ref={slideInHOneRef}>Design <br className='desktop' />with Depth</h1>
+          <p ref={slideInRef}>We believe in thoughtful design that balances form and function. Every project begins with curiosity and ends with something beautiful, built to last.</p>
+          <Link href="/work" className={styles.cta}>
+            View Our Recent Work →
+          </Link>
         </div>
       </section>
 
       <ArtistCarousel artists={ArtistInfo} />
 
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
-
         <div ref={plane5} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
             <Image src={floating5} alt='image' width={400} />
@@ -173,10 +167,12 @@ export default function Home() {
             <Image src={floating6} alt='image' width={250} />
           </Link>
         </div>
-
         <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
-          <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
+          <h1 ref={slideInHOneRef}>Collaborative <br className='desktop' />by Nature</h1>
+          <p ref={slideInRef}>From startups to established brands, we partner with visionaries <br></br>across fashion, lifestyle, hospitality, and publishing to bring <br></br>their ideas to life.</p>
+          <Link href="/contact" className={styles.cta}>
+            Get in Touch →
+          </Link>
         </div>
       </section>
 

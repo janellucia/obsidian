@@ -10,26 +10,32 @@
   width: 100vw;
   max-width: 1200px;
   margin: 0 auto;
-  height: 80vh;
+  height: 75vh;
   background-color: var(--white);
   position: relative;
   overflow: hidden;
 }
 
+.atf a,
+.altAtf a {
+  color: var(--black);
+}
+
 .atf .title {
-  width: 45%;
-  max-width: 500px;
-  height: calc(100% - 2rem);
+  width: 50%;
+  max-width: 600px;
+  height: calc(80vh - 2rem);
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 999;
 }
 
 .atf .plane {
   width: 100vw;
   max-width: 1200px;
-  height: 80vh;
+  height: 75vh;
   position: absolute;
   top: 0;
   left: 55%;
@@ -57,7 +63,7 @@
 }
 
 .atf .plane:nth-of-type(1) a {
-  right: 0;
+  right: -7%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -195,8 +201,8 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   margin-left: 50%;
+  z-index: 99;
 }
 
 .altAtf .plane {

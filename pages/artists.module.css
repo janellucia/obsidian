@@ -39,6 +39,22 @@
 
 .artists .card {
   width: calc(33.3% - 1rem);
+  margin-bottom: 20px;
+}
+
+.artists a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.artists h2 {
+  margin: 0 0 5px 0;
+  font-size: 22px;
+}
+
+.artists h3 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
 }
 
 .artists a img {
