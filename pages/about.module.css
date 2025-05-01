@@ -2,21 +2,26 @@
   padding: 0;
   margin: 0;
   width: 100vw;
-  height: 90vh;
+  height: 80vh;
   overflow: hidden;
   background-color: var(--white);
   position: relative;
 }
 
-.atf .title {
-  transform: translateY(-50%);
-  width: 45vw;
+.title {
+  width: 45%;
+  max-width: 500px;
+  height: 100%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10rem;
 }
 
-.atf .plane {
+.plane {
   width: 50vw;
-  height: 90vh;
+  height: 80vh;
   position: absolute;
   top: 0;
   left: 50%;
@@ -25,13 +30,9 @@
 @media(max-width:1025px) {
 
   .atf,
-  .atf .plane {
+  .plane {
     width: 100vw;
     height: 80vh;
-  }
-
-  .atf .title {
-    top: 52%;
   }
 
   .atf .title h1 {
@@ -43,16 +44,16 @@
 @media(max-width:650px) {
 
   .atf,
-  .atf .plane {
+  .plane {
     width: 100vw;
     height: 85vh;
   }
 
-  .atf .title {
-    top: 48%;
+  .title {
+    width: 100%;
   }
 
-  .atf .title p {
+  .title p {
     width: 85%;
     margin: 10px auto;
   }
@@ -61,67 +62,46 @@
 
 /* ==============================
 =================================
-          Planes
+      Floating Images ATF
 =================================
 ============================== */
 
-.atf .plane {
+.plane {
   filter: brightness(0.7);
 }
 
-.atf .plane a {
+.plane a {
   position: absolute;
   display: inline-block;
 }
 
-.atf .plane a img {
+.plane a img {
   border-radius: .7rem;
 }
 
-
-/* bottom middle */
-.atf .plane:nth-of-type(1) a:nth-of-type(1) {
-  left: 43%;
-  bottom: 5%;
+.plane:nth-of-type(1) a {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/* bottom first left */
-.atf .plane:nth-of-type(1) a:nth-of-type(2) {
-  left: 3%;
-  bottom: 20%
-}
-
-/* top middle */
-.atf .plane:nth-of-type(1) a:nth-of-type(3) {
-  left: 53%;
-  top: 5%;
+.plane:nth-of-type(2) a {
+  left: 65%;
+  top: 65%;
+  transform: translate(-40%, -40%);
 }
 
 @media(max-width:1025px) {
-
-  /* bottom middle */
-  .atf .plane:nth-of-type(1) a:nth-of-type(1) {
+  .plane:nth-of-type(1) a {
     left: 40%;
-    bottom: 0;
+    top: 0;
   }
-
-  /* bottom first left */
-  .atf .plane:nth-of-type(1) a:nth-of-type(2) {
-    display: none;
-  }
-
-  /* top middle */
-  .atf .plane:nth-of-type(1) a:nth-of-type(3) {
-    display: none;
-  }
-
 }
 
 @media(max-width:650px) {
 
-  /* bottom middle */
-  .atf .plane:nth-of-type(1) a:nth-of-type(1) {
-    display: none;
+  .plane:nth-of-type(1) a {
+    left: 42%;
   }
 
 }

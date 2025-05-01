@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import AnimatedButton from '../components/button';
 import {
   floating1,
   floating2,
@@ -118,24 +117,18 @@ export default function Home() {
 
         <div ref={plane1} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
-            <Image src={floating1} alt='image' width={200} />
+            <Image src={floating1} alt='image' width={400} />
           </Link>
         </div>
         <div ref={plane3} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
-            <Image src={floating5} alt='image' width={166} />
+            <Image src={floating5} alt='image' width={250} />
           </Link>
         </div>
 
         <div className={styles.title}>
           <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
           <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
-          <AnimatedButton href="/work" className="button light-button">
-            Recent Work
-          </AnimatedButton>
-          <AnimatedButton href="/artists" className="button dark-button">
-            Artists
-          </AnimatedButton>
         </div>
       </section>
 
