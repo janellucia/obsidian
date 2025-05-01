@@ -60,7 +60,7 @@
 }
 
 .iconWrapper img {
-  width: 100%;
+  width: 40%;
   height: auto;
   filter: brightness(0.7);
   border-radius: .8rem;

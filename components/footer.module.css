@@ -57,8 +57,18 @@
 }
 
 .note {
-  font-size: 0.9rem;
-  color: #777;
+  font-size: 1.2rem;
   margin-top: 2rem;
   line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .headline {
+    font-size: 48px;
+  }
+
+  .note {
+    font-size: .9rem;
+
+  }
 }

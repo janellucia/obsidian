@@ -6,10 +6,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './home-process.module.css';
 
-import process1 from '../images/artists/lena-marceau.jpg';
-import process2 from '../images/artists/theo-calder.jpg';
-import process3 from '../images/artists/isolde-vance.jpg';
-import process4 from '../images/artists/nico-velden.jpg';
+import process1 from '../images/home/home-1.jpg';
+import process2 from '../images/home/home-2.jpg';
+import process3 from '../images/home/home-3.jpg';
+import process4 from '../images/home/home-4.jpg';
 
 export default function ProcessOverview() {
   const stepsRef = useRef([]);
