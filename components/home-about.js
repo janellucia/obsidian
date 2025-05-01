@@ -39,7 +39,7 @@ export default function AboutSection() {
     <section ref={sectionRef} className={styles.section}>
       <div className={styles.container}>
         <div className={styles.textArea}>
-          <h2 className={styles.heading}>What Drives Us</h2>
+          <h3>What Drives Us</h3>
           <p className={styles.paragraph}>
             We believe great design is both personal and practical.<br />
             Rooted in empathy and craftsmanship,<br />

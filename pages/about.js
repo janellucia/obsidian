@@ -127,7 +127,7 @@ export default function Home() {
           <h1 ref={slideInHOneRef}>A Creative Journey Across Mediums, Cultures &  Visions.</h1>
           <p ref={slideInRef}>We’re a design studio driven by intention, storytelling, and craft. <br></br>With every project, we aim to create timeless, meaningful <br></br>experiences—on screen and in print</p>
           <Link href="/contact" className={styles.cta}>
-            Get in Touch →
+            Get Started →
           </Link>
         </div>
       </section>

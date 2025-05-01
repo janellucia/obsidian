@@ -57,6 +57,26 @@ h1 {
   font-style: italic;
 }
 
+h2 {
+  font-size: 51px;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 31px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 19px;
+}
+
 .button button {
   width: 150px;
   margin-top: 18px;
