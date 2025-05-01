@@ -1,12 +1,12 @@
 'use client';
-// pages/artists/[slug].js
-import ArtistInfo from '../../components/data-artist';
-import { useRouter } from 'next/router';
-import styles from "./artist-page.module.css";
-import Image from 'next/image';
+
 import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import ArtistInfo from '../../components/data-artist';
+import styles from './artist-page.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,90 +21,68 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const artist = ArtistInfo.find((item) => item.slug === params.slug);
 
-  // Log the slug and matched artist
-  console.log('Building page for artist slug:', params.slug);
-  console.log('Matched artist data:', artist);
-
-  // If no artist is found, trigger 404
-  if (!artist) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      artist,
-    },
-  };
+  return { props: { artist } };
 }
 
-function ArtistPage({ artist }) {
+export default function ArtistPage({ artist }) {
   const router = useRouter();
-  const wrapperRef = useRef(null);
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
   useEffect(() => {
-    // Page entrance
-    gsap.from(wrapperRef.current, {
-      y: 300,
-      opacity: 0,
-      duration: 0.6,
-      ease: "power3.out"
-    });
+    gsap.fromTo(
+      imageRef.current,
+      { opacity: 0, y: -50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: 'top 85%',
+        },
+      }
+    );
 
-    // Scroll-triggered fade-in for image and info
-    gsap.from(imageRef.current, {
-      scrollTrigger: {
-        trigger: imageRef.current,
-        start: "top 85%",
-        toggleActions: "play none none none"
-      },
-      opacity: 0,
-      y: -50,
-      duration: 0.8,
-      ease: "power2.out"
-    });
-
-    gsap.from(infoRef.current, {
-      scrollTrigger: {
-        trigger: infoRef.current,
-        start: "top 90%",
-        toggleActions: "play none none none"
-      },
-      opacity: 0,
-      y: 50,
-      duration: 0.8,
-      delay: 0.2,
-      ease: "power2.out"
-    });
+    gsap.fromTo(
+      infoRef.current,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: infoRef.current,
+          start: 'top 85%',
+        },
+      }
+    );
   }, []);
 
   if (router.isFallback) return <div>Loading...</div>;
 
   return (
-    <div ref={wrapperRef}>
-      <section className={styles.artistWrapper}>
-        <div className={styles.image} ref={imageRef}>
-          <Image
-            src={artist.image}
-            alt={artist.name}
-            width={700}
-            height={800}
-            className={styles.artistImage}
-          />
-        </div>
-        <div className={styles.info} ref={infoRef}>
-          <p className={styles.title}>{artist.title}</p>
-          <h1>{artist.name}</h1>
-          <p className={styles.subtitle}>{artist.subtitle}</p>
-          <p className={styles.shortbio}>{artist.shortbio}</p>
-          <p className={styles.longbio}>{artist.longbio}</p>
-        </div>
+    <div className={styles.page}>
+      <section className={styles.artistWrapper} ref={imageRef}>
+        <Image
+          src={artist.image}
+          alt={artist.name}
+          width={700}
+          height={800}
+          className={styles.artistImage}
+        />
+      </section>
+
+      <section className={styles.info} ref={infoRef}>
+        <p className={styles.title}>{artist.title}</p>
+        <h1>{artist.name}</h1>
+        <p className={styles.subtitle}>{artist.subtitle}</p>
+        <p className={styles.shortbio}>{artist.shortbio}</p>
+        <p className={styles.longbio}>{artist.longbio}</p>
       </section>
     </div>
   );
 }
-
-export default ArtistPage;
