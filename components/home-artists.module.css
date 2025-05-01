@@ -1,7 +1,5 @@
 .wrapper {
   padding: 3rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
   background-color: var(--black);
   color: var(--white);
 }
@@ -14,6 +12,8 @@
 
 .carousel {
   overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .slide {
