@@ -1,10 +1,12 @@
-import ArtistInfo from '../../components/data-artist';
 import { useRouter } from 'next/router';
-import styles from "./artist-page.module.css";
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react'; // Add useRef here
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Head from 'next/head';
+import ArtistInfo from '../../components/data-artist';
+import styles from './artist-page.module.css';
+import Image from 'next/image';
+import WorkItems from '../../components/data-work';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,56 +14,90 @@ export async function getStaticPaths() {
   const paths = ArtistInfo.map((item) => ({
     params: { slug: item.slug },
   }));
-
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
   const artist = ArtistInfo.find((item) => item.slug === params.slug);
-
-  // Log the slug and matched artist
-  console.log('Building page for artist slug:', params.slug);
-  console.log('Matched artist data:', artist);
-
-  // If no artist is found, trigger 404
-  if (!artist) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      artist,
-    },
-  };
+  const relatedWork = WorkItems.filter((item) =>
+    item.artist === artist.name
+  ); // Assuming you have an `artist` field in WorkItems
+  return { props: { artist, relatedWork } };
 }
 
-function ArtistPage({ artist }) {
+function ArtistPage({ artist, relatedWork }) {
   const router = useRouter();
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
   const wrapperRef = useRef(null);
   const imageRef = useRef(null);
   const infoRef = useRef(null);
 
-  // Page entrance animation that runs only once on initial load
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 1.2 } });
-
-    tl.from(imageRef.current, {
-      y: 50,
+    gsap.from(wrapperRef.current, {
+      y: 300,
       opacity: 0,
-    })
-      .from(infoRef.current, {
-        y: 50,
-        opacity: 0,
-      }, '-=0.8'); // Overlap slightly with image animation
-  }, []); // Empty dependency array ensures the animation runs only once on mount
+      duration: 0.6,
+      ease: 'power3.out',
+    });
 
-  // Fallback loader
-  if (router.isFallback) return <div>Loading...</div>;
+    gsap.from(imageRef.current, {
+      scrollTrigger: {
+        trigger: imageRef.current,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      opacity: 0,
+      y: -50,
+      duration: 0.8,
+      ease: 'power2.out',
+    });
+
+    gsap.from(infoRef.current, {
+      scrollTrigger: {
+        trigger: infoRef.current,
+        start: 'top 90%',
+        toggleActions: 'play none none none',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      delay: 0.2,
+      ease: 'power2.out',
+    });
+
+    setIsPageLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      gsap.to(wrapperRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        onComplete: () => {
+          // Ensure page loads again with animation
+          setIsPageLoaded(false);
+        },
+      });
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router]);
+
+  if (!isPageLoaded) return <div>Loading...</div>;
 
   return (
-    <div ref={wrapperRef} className={styles.pageWrapper}>
+    <div ref={wrapperRef}>
+      <Head>
+        <title>{`${artist.name} | Artist Portfolio`}</title>
+        <meta name="description" content={artist.longbio} />
+        <meta property="og:title" content={artist.name} />
+        <meta property="og:description" content={artist.longbio} />
+        <meta property="og:image" content={artist.image.src} />
+      </Head>
       <section className={styles.artistWrapper}>
         <div className={styles.image} ref={imageRef}>
           <Image
@@ -78,6 +114,25 @@ function ArtistPage({ artist }) {
           <p className={styles.subtitle}>{artist.subtitle}</p>
           <p className={styles.shortbio}>{artist.shortbio}</p>
           <p className={styles.longbio}>{artist.longbio}</p>
+        </div>
+      </section>
+
+      <section className={styles.relatedWork}>
+        <h2>Related Works</h2>
+        <div className={styles.relatedWorkList}>
+          {relatedWork.map((work) => (
+            <div key={work.slug} className={styles.workItem}>
+              <Image
+                src={work.imageOne}
+                alt={work.title}
+                width={300}
+                height={200}
+                className={styles.workImage}
+              />
+              <h3>{work.title}</h3>
+              <p>{work.artist}</p>
+            </div>
+          ))}
         </div>
       </section>
     </div>
