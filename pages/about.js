@@ -1,42 +1,148 @@
-import Image from 'next/image';
-import About1 from '../images/about/about-1.jpg';
-import About2 from '../images/about/bg-landing-02.jpg';
 import styles from './about.module.css';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+import AnimatedButton from '../components/button';
+import {
+  floating1,
+  floating2,
+  floating3,
+  floating4,
+  floating5,
+  floating6
+} from '../components/data-about';
+
+
+import ParallaxSection from '../components/parallax';
 
 import ArtistCarousel from '../components/home-artists';
 import ArtistInfo from '../components/data-artist';
 
-export default function About() {
+
+export default function Home() {
+
+  useEffect(() => {
+    document.body.classList.add("home-page");
+    return () => {
+      document.body.classList.remove("home-page");
+    };
+  }, []);
+
+  const plane1 = useRef(null);
+  const plane2 = useRef(null);
+  const plane3 = useRef(null);
+  let requestAnimationFrameId = null;
+  let xForce = 0;
+  let yForce = 0;
+  const easing = 0.08;
+  const speed = 0.01;
+
+  const manageMouseMove = (e) => {
+    const { movementX, movementY } = e;
+    xForce += movementX * speed;
+    yForce += movementY * speed;
+
+    if (requestAnimationFrameId == null) {
+      requestAnimationFrameId = requestAnimationFrame(animate);
+    }
+  }
+
+  const lerp = (start, target, amount) => start * (1 - amount) + target * amount;
+
+  const animate = () => {
+    xForce = lerp(xForce, 0, easing);
+    yForce = lerp(yForce, 0, easing);
+    gsap.set(plane1.current, { x: `+=${xForce}`, y: `+=${yForce}` })
+    gsap.set(plane2.current, { x: `+=${xForce * 0.5}`, y: `+=${yForce * 0.5}` })
+    gsap.set(plane3.current, { x: `+=${xForce * 0.25}`, y: `+=${yForce * 0.25}` })
+
+    if (Math.abs(xForce) < 0.01) xForce = 0;
+    if (Math.abs(yForce) < 0.01) yForce = 0;
+
+    if (xForce != 0 || yForce != 0) {
+      requestAnimationFrame(animate);
+    }
+    else {
+      cancelAnimationFrame(requestAnimationFrameId)
+      requestAnimationFrameId = null;
+    }
+  }
+
+  // Slide in effect
+  const slideInHOneRef = useRef(null);
+
+  useEffect(() => {
+    gsap.set(slideInHOneRef.current, { opacity: 0, y: 20 });
+    gsap.to(slideInHOneRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      delay: 0.4,
+      ease: 'power2.out',
+    });
+
+    return () => {
+      gsap.killTweensOf(slideInHOneRef.current);
+    };
+  }, []);
+
+  const slideInRef = useRef(null);
+
+  useEffect(() => {
+    gsap.set(slideInRef.current, { opacity: 0, y: 20 });
+    gsap.to(slideInRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      delay: 0.3,
+      ease: 'power2.out',
+    });
+
+    return () => {
+      gsap.killTweensOf(slideInRef.current);
+    };
+  }, []);
+
+
   return (
     <motion.div
       initial={{ y: 300, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -300, opacity: 0 }}
       transition={{ duration: .3, ease: "easeInOut" }}>
-      <section>
-        <Image
-          src={About1}
-          alt="Picture of the author"
-          className={styles.aboutATF}
-        />
-      </section>
-      <section className={styles.aboutText}>
-        <h1>Obsidian is the design studio of Camila Suárez and Sofía Álvarez. The Argentinian designers have been working collaboratively together in Los Angeles since 2015. The studio’s work regularly features bold silhouettes, neutral tones, and raw materials free of embellishment. The work of Obsidian celebrates the skilled community of manufacturers around Los Angeles as material or production “constraints” become opportunities and inform the design process.</h1>
-      </section>
-      <section className={styles.blocks}>
-        <div className={styles.left}>
-          <Image
-            src={About2}
-            alt="Picture of the author"
-            className={styles.image}
-          />
+
+
+      <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
+
+        <div ref={plane1} className={styles.plane}>
+          <Link href="/" className='image-link no-hover'>
+            <Image src={floating1} alt='image' width={200} />
+          </Link>
         </div>
-        <div className={styles.right}>
-          <h2>At the core of their practice lies a desire to unearth the full potential of raw materials and a creative expression reflective of their cultural identity and heritage.</h2>
+        <div ref={plane3} className={styles.plane}>
+          <Link href="/" className='image-link no-hover'>
+            <Image src={floating5} alt='image' width={166} />
+          </Link>
+        </div>
+
+        <div className={styles.title}>
+          <h1 ref={slideInHOneRef}>Design that Moves with You</h1>
+          <p ref={slideInRef}>We are a collective of artists across photography, sculpture, film, and new media.</p>
+          <AnimatedButton href="/work" className="button light-button">
+            Recent Work
+          </AnimatedButton>
+          <AnimatedButton href="/artists" className="button dark-button">
+            Artists
+          </AnimatedButton>
         </div>
       </section>
+
+      <ParallaxSection />
+
       <ArtistCarousel artists={ArtistInfo} />
+
     </motion.div>
-  )
+  );
 }
