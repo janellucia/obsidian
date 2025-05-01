@@ -11,7 +11,6 @@
 .title {
   width: 45%;
   max-width: 500px;
-  height: 100%;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -32,7 +31,17 @@
   .atf,
   .plane {
     width: 100vw;
-    height: 80vh;
+    height: 70vh;
+  }
+
+  .title {
+    width: 45%;
+    max-width: 500px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 3rem;
   }
 
   .atf .title h1 {
@@ -41,21 +50,54 @@
 
 }
 
-@media(max-width:650px) {
+@media(max-width:880px) {
 
   .atf,
-  .plane {
+  .plane,
+  .title {
     width: 100vw;
     height: 85vh;
+    top: 0;
+    left: 0;
   }
 
   .title {
     width: 100%;
+    max-width: 600px;
+    height: calc(100% - 22rem);
+    justify-content: flex-end;
+    padding-top: 8rem;
+    padding-left: 3rem;
   }
 
-  .title p {
-    width: 85%;
-    margin: 10px auto;
+  .atf .title h1 {
+    font-size: 44px;
+  }
+
+}
+
+@media(max-width:650px) {
+
+  .atf,
+  .plane,
+  .title {
+    width: 100vw;
+    height: 85vh;
+    top: 0;
+    left: 0;
+  }
+
+  .title {
+    width: 100%;
+    max-width: 600px;
+    height: calc(100% - 2rem);
+    justify-content: flex-end;
+    padding-top: initial;
+    padding-left: 1rem;
+  }
+
+  .atf .title h1 {
+    font-size: 44px;
   }
 
 }
@@ -93,15 +135,45 @@
 
 @media(max-width:1025px) {
   .plane:nth-of-type(1) a {
-    left: 40%;
-    top: 0;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .plane:nth-of-type(2) a {
+    left: 30%;
+    top: 65%;
+    transform: translate(-40%, -40%);
+  }
+}
+
+@media(max-width:880px) {
+  .plane:nth-of-type(1) a {
+    left: 13%;
+    top: 30%;
+    transform: translateY(-50%);
+  }
+
+  .plane:nth-of-type(2) a {
+    left: 60%;
+    top: 40%;
+    transform: translate(-40%, -40%);
   }
 }
 
 @media(max-width:650px) {
 
   .plane:nth-of-type(1) a {
-    left: 42%;
+    left: 1rem;
+    top: 30%;
+    transform: translateY(-50%);
+  }
+
+  .plane:nth-of-type(2) a {
+    left: initial;
+    right: 0;
+    top: 27%;
+    transform: initial;
   }
 
 }
