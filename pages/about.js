@@ -125,7 +125,7 @@ export default function Home() {
         </div>
         <div className={styles.title}>
           <h1 ref={slideInHOneRef}>A Creative Journey Across Mediums, Cultures &  Visions.</h1>
-          <p ref={slideInRef}>We’re a design studio driven by intention, storytelling, and craft. <br></br>With every project, we aim to create timeless, meaningful <br></br>experiences—on screen and in print</p>
+          <p ref={slideInRef}>A design studio driven by intention, storytelling, and craft. <br className='desktop' />With every project, we aim to create timeless, meaningful <br className='desktop' />experiences—on screen and in print</p>
           <Link href="/contact" className={styles.cta}>
             Get Started →
           </Link>
@@ -168,8 +168,8 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>Collaborative <br className='desktop' />by Nature</h1>
-          <p ref={slideInRef}>From startups to established brands, we partner with visionaries <br></br>across fashion, lifestyle, hospitality, and publishing to bring <br></br>their ideas to life.</p>
+          <h1 ref={slideInHOneRef}>Collaborative <br />by Nature</h1>
+          <p ref={slideInRef}>From startups to established brands, we partner with visionaries <br className='desktop' />across fashion, lifestyle, hospitality, and publishing to bring <br className='desktop' />their ideas to life.</p>
           <Link href="/contact" className={styles.cta}>
             Get in Touch →
           </Link>

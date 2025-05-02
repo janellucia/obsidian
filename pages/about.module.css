@@ -77,9 +77,10 @@
 @media(max-width:1025px) {
 
   .atf,
+  .altAtf,
   .altAtf .plane {
     width: 100vw;
-    height: 65vh;
+    height: 70vh;
   }
 
   .atf .title {
@@ -128,6 +129,7 @@
     justify-content: flex-end;
     padding-top: 8rem;
     padding-left: 3rem;
+    max-width: 666px;
   }
 
   .atf .title h1 {
@@ -135,14 +137,14 @@
   }
 
   .atf .plane:nth-of-type(1) a {
-    right: 5%;
+    right: 46%;
     top: 33%;
     transform: translateY(-50%);
   }
 
   .atf .plane:nth-of-type(2) a {
-    right: 36%;
-    top: 43%;
+    right: 7%;
+    top: 34%;
     transform: translate(-40%, -40%);
   }
 }
@@ -153,18 +155,24 @@
   .atf .plane,
   .atf .title {
     width: 100vw;
-    height: 85vh;
+    height: 100vh;
+    min-height: 800px !important;
+  }
+
+  .atf:last-child {
+    height: 90vh !important;
   }
 
   .atf .title {
     height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
     justify-content: flex-end;
     padding-top: initial;
     padding-left: 1rem;
   }
 
   .atf .title h1 {
-    font-size: 44px;
+    font-size: 41px;
   }
 
   .atf .plane:nth-of-type(1) a {
@@ -237,6 +245,7 @@
 }
 
 @media(max-width:1025px) {
+
   .altAtf .plane:nth-of-type(1) a {
     left: 5%;
     top: 50%;
@@ -244,9 +253,9 @@
   }
 
   .altAtf .plane:nth-of-type(2) a {
-    left: 63%;
-    top: 65%;
-    transform: translatey(-40%);
+    left: 23%;
+    top: 54%;
+    transform: initial;
   }
 }
 
@@ -256,11 +265,12 @@
   .altAtf .plane,
   .altAtf .title {
     width: 100vw;
-    height: 80vh;
+    height: 70vh;
   }
 
   .altAtf .plane {
     left: 0;
+    transform: initial;
   }
 
   .altAtf .title {
@@ -276,6 +286,10 @@
 
   .altAtf .title h1 {
     font-size: 44px;
+  }
+
+  .altAtf .title h1 br {
+    display: none;
   }
 
   .altAtf .plane:nth-of-type(1) a {
@@ -297,9 +311,11 @@
   .altAtf .plane,
   .altAtf .title {
     width: 100vw;
-    height: 85vh;
+    height: 80vh;
+    padding-bottom: 30px;
     top: 0;
     left: 0;
+    transform: initial;
   }
 
   .altAtf .title {
@@ -322,9 +338,10 @@
   }
 
   .altAtf .plane:nth-of-type(2) a {
-    left: 0;
-    top: 27%;
+    right: initial;
+    top: 34%;
     transform: initial;
+    left: 0;
   }
 
 }

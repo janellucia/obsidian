@@ -1,9 +1,9 @@
-import floating1 from '../images/home/floating_1.jpg';
-import floating2 from '../images/home/floating_2.jpg';
-import floating3 from '../images/home/floating_3.jpg';
-import floating4 from '../images/home/floating_4.jpg';
-import floating5 from '../images/home/floating_5.jpg';
-import floating6 from '../images/home/floating_6.jpg';
+import floating1 from '../images/work/thorn-rituals-1.jpg';
+import floating2 from '../images/work/nocturne-studies-2.jpg';
+import floating3 from '../images/work/thorn-rituals-2.jpg';
+import floating4 from '../images/work/monoliths-2.jpg';
+import floating5 from '../images/work/thorn-rituals-3.jpg';
+import floating6 from '../images/work/monoliths-3.jpg';
 
 
 export {

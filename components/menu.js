@@ -36,8 +36,8 @@ export default function Menu() {
       <div className={styles.menubody}>
         <div onMouseLeave={() => { setSelectedIndicator(pathname) }} className={styles.nav}>
           <div className={styles.menuheader}>
-            <Link href='/'>Obsidian</Link>
-            <p>We collaborate with curators, clients, and institutions on original commissions and exhibitions</p>
+            <h2>Design that Moves with You</h2>
+            <p>a collective of artists across photography, sculpture, film, and new media.</p>
           </div>
           {
             navItems.map((data, index) => {
