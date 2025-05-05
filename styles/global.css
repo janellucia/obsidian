@@ -27,20 +27,17 @@ body {
   background-color: var(--white);
   line-height: 1.6;
   font-size: 16px;
-}
-
-header {
-  width: calc(100% - 2rem);
-  padding: .5rem 1rem;
+  overflow-x: hidden;
 }
 
 main {
   min-height: 75vh;
 }
 
-section {
-  width: 100%;
-  overflow: hidden !important;
+.container,
+header {
+  width: calc(100% - 2rem);
+  padding: .5rem 1rem;
 }
 
 h1,
@@ -185,7 +182,6 @@ header {
   top: 0;
   left: 0;
   background-color: var(--white);
-  padding: .5rem 1rem;
   z-index: 999;
 }
 

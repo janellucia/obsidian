@@ -1,21 +1,89 @@
+/* Layout wrapper to prevent horizontal scroll */
+.pageWrapper {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Above-the-fold section */
+.atf {
+  padding: 5rem 3rem 1rem 3rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.atf h1 {
+  margin-bottom: 0;
+}
+
+.atf p {
+  font-size: 22px;
+  margin-top: 0;
+  max-width: 800px;
+}
+
+/* Project grid */
+.projects {
+  padding: 2rem 3rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Each project card */
 .projectCard {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+  width: calc(33.3% - 1rem);
+  margin-bottom: .6rem;
+  aspect-ratio: 4 / 3;
 }
 
-.projectCard img {
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  display: block;
+/* Responsive widths */
+@media (max-width: 900px) {
+  .atf {
+    padding: 5rem 1rem 0 1rem;
+  }
+
+  .projects {
+    padding: 1rem 1rem;
+    gap: .5rem;
+  }
+
+  .projectCard {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .projectCard {
+    width: 100%;
+  }
+}
+
+/* Image styles */
+.image {
   width: 100%;
   height: auto;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  filter: brightness(0.7);
 }
 
-.projectCard:hover img {
+.projectCard:hover .image {
   transform: scale(1.08);
   opacity: 0.85;
 }
 
+/* Title overlay */
 .projectCard h2 {
   position: absolute;
   bottom: 1rem;
@@ -30,6 +98,7 @@
   pointer-events: none;
 }
 
+/* Gradient overlay on hover */
 .projectCard::before {
   content: '';
   position: absolute;
@@ -47,59 +116,4 @@
 
 .projectCard:hover::before {
   opacity: 1;
-}
-
-
-
-
-/* ATF */
-
-.atf {
-  padding: 5rem 2rem 1rem 2rem;
-}
-
-.atf h1 {
-  margin-bottom: 0;
-}
-
-.atf p {
-  font-size: 22px;
-  margin-top: 0;
-  max-width: 800px;
-}
-
-.projects {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.projects a {
-  display: block;
-  text-decoration: none;
-  color: var(--black);
-  position: relative;
-}
-
-@media (max-width: 900px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .projects {
-    grid-template-columns: 1fr;
-  }
-}
-
-.projects a img {
-  width: 100%;
-  height: auto;
-  filter: brightness(0.7);
-}
-
-.projects h2 {
-  margin-top: 5px;
 }

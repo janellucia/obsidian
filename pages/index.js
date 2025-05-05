@@ -126,47 +126,51 @@ export default function Home() {
       exit={{ y: -300, opacity: 0 }}
       transition={{ duration: .3, ease: "easeInOut" }}>
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
-        <div ref={plane1} className={styles.plane}>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating1} alt='image' width={200} />
-          </Link>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating2} alt='image' width={200} />
-          </Link>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating7} alt='image' width={150} />
-          </Link>
-        </div>
+        <div className='container'>
 
-        <div ref={plane2} className={styles.plane}>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating4} alt='image' width={180} />
-          </Link>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating6} alt='image' width={160} />
-          </Link>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating8} alt='image' width={180} />
-          </Link>
-        </div>
-        <div ref={plane3} className={styles.plane}>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating3} alt='image' width={160} />
-          </Link>
-          <Link href="/" className='image-link no-hover'>
-            <Image src={floating5} alt='image' width={166} />
-          </Link>
-        </div>
 
-        <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>Design <br className='mobile' />that Moves <br className='mobile' />with You</h1>
-          <p ref={slideInRef}>a collective of artists across photography, sculpture, film, and new media.</p>
-          <AnimatedButton href="/work" className="button light-button">
-            Recent Work
-          </AnimatedButton>
-          <AnimatedButton href="/artists" className="button dark-button">
-            Artists
-          </AnimatedButton>
+          <div ref={plane1} className={styles.plane}>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating1} alt='image' width={200} />
+            </Link>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating2} alt='image' width={200} />
+            </Link>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating7} alt='image' width={150} />
+            </Link>
+          </div>
+
+          <div ref={plane2} className={styles.plane}>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating4} alt='image' width={180} />
+            </Link>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating6} alt='image' width={160} />
+            </Link>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating8} alt='image' width={180} />
+            </Link>
+          </div>
+          <div ref={plane3} className={styles.plane}>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating3} alt='image' width={160} />
+            </Link>
+            <Link href="/" className='image-link no-hover'>
+              <Image src={floating5} alt='image' width={166} />
+            </Link>
+          </div>
+
+          <div className={styles.title}>
+            <h1 ref={slideInHOneRef}>Design <br className='mobile' />that Moves <br className='mobile' />with You</h1>
+            <p ref={slideInRef}>a collective of artists across photography, sculpture, film, and new media.</p>
+            <AnimatedButton href="/work" className="button light-button">
+              Recent Work
+            </AnimatedButton>
+            <AnimatedButton href="/artists" className="button dark-button">
+              Artists
+            </AnimatedButton>
+          </div>
         </div>
       </section>
 

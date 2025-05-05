@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './work.module.css';
@@ -13,7 +15,6 @@ export default function Work() {
   const projectsRef = useRef([]);
 
   useEffect(() => {
-    // Animate ATF section on scroll
     gsap.fromTo(
       atfRef.current,
       { scale: 0.95, opacity: 0 },
@@ -29,7 +30,6 @@ export default function Work() {
       }
     );
 
-    // Staggered fade-up for project items
     gsap.fromTo(
       projectsRef.current,
       { y: 50, opacity: 0 },
@@ -48,7 +48,7 @@ export default function Work() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.pageWrapper}>
       <section className={styles.atf} ref={atfRef}>
         <h1>Selected Works</h1>
         <p>
@@ -60,8 +60,17 @@ export default function Work() {
 
       <section className={styles.projects}>
         {WorkItems.map((workItem, i) => (
-          <Link href={`/work/${workItem.slug}`} key={i} ref={(el) => (projectsRef.current[i] = el)} className={styles.projectCard}>
-            <Image src={workItem.image} alt={workItem.title} />
+          <Link
+            href={`/work/${workItem.slug}`}
+            key={i}
+            ref={(el) => (projectsRef.current[i] = el)}
+            className={styles.projectCard}
+          >
+            <Image
+              src={workItem.image}
+              alt={workItem.title}
+              className={styles.image}
+            />
             <h2>{workItem.title}</h2>
           </Link>
         ))}

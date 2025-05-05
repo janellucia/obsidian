@@ -163,6 +163,10 @@
     height: 90vh !important;
   }
 
+  .atf:last-child .title {
+    margin-top: -30px;
+  }
+
   .atf .title {
     height: calc(100% - 2rem);
     width: calc(100% - 2rem);
@@ -311,7 +315,7 @@
   .altAtf .plane,
   .altAtf .title {
     width: 100vw;
-    height: 80vh;
+    height: 90vh;
     padding-bottom: 30px;
     top: 0;
     left: 0;

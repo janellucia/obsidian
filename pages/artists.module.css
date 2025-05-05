@@ -42,6 +42,21 @@
   margin-bottom: 20px;
 }
 
+@media(max-width:768px) {
+  .atf {
+    padding: 5rem 1rem 1rem 1rem;
+  }
+
+  .artists {
+    padding: .5rem 1rem;
+  }
+
+  .artists .card {
+    width: calc(50% - .5rem);
+    margin-bottom: 20px;
+  }
+}
+
 .artists a {
   text-decoration: none;
   color: var(--black);
