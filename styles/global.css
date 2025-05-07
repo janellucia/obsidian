@@ -1,6 +1,12 @@
-@import url("https://db.onlinewebfonts.com/c/3724ece79a634e7b5168905d01e59a64?family=Maison+Neue+Book");
 @import url(https://db.onlinewebfonts.com/c/742dcddc06afc2dfc1ecedd0a42adca0?family=Cardinal+Fruit+Italic);
 @import url(https://db.onlinewebfonts.com/c/2bfe809f5a433474ec388de3ccb69e73?family=Cardinal+Fruit+Medium);
+
+
+@font-face {
+  font-family: Maison Neue Book;
+  src: url("../fonts/Maison-Neue-Book.woff2") format("woff");
+}
+
 
 :root {
   --white: #f8f8f5;
@@ -8,7 +14,6 @@
   --black: #000;
   --brown: #492728;
   --bodyFont: "Maison Neue Book", sans-serif;
-  --italicFont: 'Cardinal Fruit Medium';
 }
 
 .nextjs-toast,
@@ -55,7 +60,6 @@ h1 {
 }
 
 .h-italics {
-  font-family: var(--italicFont);
   font-style: italic;
 }
 
@@ -87,7 +91,6 @@ screen and (max-width: 1025px) {
   }
 
   .h-italics {
-    font-family: var(--italicFont);
     font-style: italic;
   }
 
