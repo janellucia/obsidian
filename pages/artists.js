@@ -26,24 +26,26 @@ export default function Artists() {
       gsap.from(el, {
         scrollTrigger: {
           trigger: el,
-          start: "top 90%",
+          start: "top bottom", // 👈 trigger as soon as top of element enters the bottom of viewport
           toggleActions: "play none none none",
         },
         y: 50,
         opacity: 0,
         duration: 0.6,
-        delay: i * 0.1,
+        delay: i * 0.05,
         ease: "power3.out",
       });
     });
+
+
   }, []);
 
   return (
     <div ref={pageRef}>
       <section className={styles.atf}>
-        <h1>Artist Collective</h1>
+        <h1>Our Artists</h1>
         <p>
-          A curated collection of moments that endure — each project shaped by a singular voice, and a shared commitment to depth, texture, and transformation.
+          A curated roster of artists whose vision, craft, and originality define the creative spirit.
         </p>
       </section>
 

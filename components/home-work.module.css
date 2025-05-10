@@ -112,8 +112,8 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 1.5rem;
-    width: calc(100% - 3rem);
+    padding: 3rem 1rem;
+    width: calc(100% - 2rem);
   }
 
   .heading {
@@ -127,7 +127,7 @@
 
   .grid {
     grid-template-columns: 2fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .projectCard h3 {
@@ -141,8 +141,8 @@
 
 @media (max-width: 480px) {
   .section {
-    padding: 2rem 1rem;
-    width: calc(100% - 2rem);
+    padding: 2rem 0;
+    width: 100%;
   }
 
   .heading {

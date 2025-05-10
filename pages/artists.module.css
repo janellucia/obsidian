@@ -26,8 +26,7 @@
 
 .atf p {
   font-size: 22px;
-  margin-top: 0;
-  max-width: 800px;
+  margin-top: 10px;
 }
 
 .artists {
@@ -45,6 +44,14 @@
 @media(max-width:768px) {
   .atf {
     padding: 5rem 1rem 1rem 1rem;
+  }
+
+  .atf h1 {
+    font-size: 55px;
+  }
+
+  .atf p {
+    font-size: 17px;
   }
 
   .artists {

@@ -1,23 +1,65 @@
 .page {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   width: 100vw;
 }
 
 .artistWrapper {
-  width: 50vw;
+  width: 50%;
 }
 
 .artistWrapper img {
-  width: 50vw;
+  width: 100%;
   height: auto;
 }
 
 .info {
-  width: 45%;
+  width: calc(45% - 4rem);
   padding: 4rem;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+
+.info .title {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.info .subtitle {
+  font-size: 22px;
+  margin: 5px 0;
+}
+
+.info .shortbio {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.info .longbio {
+  margin: 10px 0;
+}
+
+@media(max-width:900px) {
+
+  .artistWrapper {
+    width: 100vw;
+  }
+
+  .artistWrapper img {
+    width: 100vw;
+  }
+
+  .info {
+    width: 100%;
+    padding: 2rem 1rem 5rem 1rem;
+  }
+
+  .info h1 {
+    font-size: 44px;
+  }
 }

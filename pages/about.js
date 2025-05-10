@@ -1,7 +1,6 @@
 import styles from './about.module.css';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -106,12 +105,7 @@ export default function Home() {
   }, []);
 
   return (
-    <motion.div
-      initial={{ y: 300, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -300, opacity: 0 }}
-      transition={{ duration: .3, ease: "easeInOut" }}>
-
+    <div>
       <section onMouseMove={(e) => { manageMouseMove(e) }} className={styles.atf}>
         <div ref={plane1} className={styles.plane}>
           <Link href="/" className='image-link no-hover'>
@@ -124,7 +118,7 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.title}>
-          <h1 ref={slideInHOneRef}>A Creative Journey Across Mediums, Cultures &  Visions.</h1>
+          <h1 ref={slideInHOneRef}>A Creative Journey Across Mediums, Cultures & Visions.</h1>
           <p ref={slideInRef}>A design studio driven by intention, storytelling, and craft. <br className='desktop' />With every project, we aim to create timeless, meaningful <br className='desktop' />experiences—on screen and in print</p>
           <Link href="/contact" className={styles.cta}>
             Get Started →
@@ -175,7 +169,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-    </motion.div>
+    </div>
   );
 }
