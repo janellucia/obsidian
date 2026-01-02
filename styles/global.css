@@ -21,6 +21,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  cursor: none;
 }
 
 body {
@@ -135,6 +136,82 @@ screen and (max-width: 650px) {
     font-size: 19px;
   }
 }
+
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+
+
+.app-shell.is-loading {
+  opacity: 0;
+}
+
+.app-shell {
+  transition: opacity 0.2s ease;
+}
+
+.app-loader__title {
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.app--behind-loader {
+  /* Keeps the layout from flashing white while loader is up */
+  opacity: 1;
+  background: #000;
+}
+
+.app-loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: grid;
+  place-items: center;
+  z-index: 99999;
+}
+
+.app-loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: grid;
+  place-items: center;
+  z-index: 99999;
+}
+
+.app-loader__title {
+  color: #fff;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Black curtain shown ONLY while React mounts the real page */
+.app-curtain {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99998;
+}
+
+
 
 
 .button button {
